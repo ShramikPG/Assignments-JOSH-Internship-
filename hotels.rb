@@ -1,25 +1,20 @@
 options = {
-	Box8: ["Rajma,30","Vada Pav,50","Dal,20"],
-	Locavore: ["Dal,10","Vada Pav,30","Sabji,40"],
-	Flovours: ["Ice Cream,10","Sandwich,20","Burger,30","Vada Pav,30"]
+	Box8: {Rajma: 30, VadaPav: 50,Dal: 20},
+	Locavore: {Dal: 10,VadaPav: 30,Sabji: 40},
+	Flovours: {IceCream: 10,Sandwich: 20,Burger: 30,VadaPav: 30}
 }
 puts "Enter Dish"
-dish = gets.chomp
+dish_in = gets.chomp
 puts "Enter Budget"
 budget = gets.to_i
 result = Array.new
-
-for opt in options.keys #iterate over keys
-	for val in options[opt] #iterate ove value of that key
-		k = val.split(",")
-		if (k.first == dish) && (k.last.to_i <= budget )
-			result<<opt
-		end
-	end
+options.each do |hotel, dishes_with_price |
+	byebug
+ a = dishes_with_price.select{|dish,price| dish.to_s == dish_in && budget >= price }
+ result << hotel if a.count > 0
 end
-
-if result.size > 0 
+if result.size>0
 	puts result
 else
-	puts "incorrect input or zero result for your query"
+	puts "No Resut for your Query"
 end

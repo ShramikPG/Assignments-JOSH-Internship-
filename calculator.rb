@@ -1,30 +1,15 @@
+def calculate(num1,num2,op)
+	num1.send(op,num2)
+end
 begin
-	puts "Enter First Number"
-	num1 = Integer(gets.chomp)
+	puts "Enter First Number and Second Number"
+	inputarr = [Integer(gets.chomp),Integer(gets.chomp)]
 	puts "Enter Operator"
-	op = gets.chomp
-	puts "Enter Second Number"
-	num2 = Integer(gets.chomp)
+	op = gets.chomp.to_sym
 rescue
 	puts "Please Enter Integer Values"	
 	retry
 end
-
-case op
-	when '+'
-	  puts num1.to_i + num2.to_i
-	when '-'
-	  puts num1.to_i - num2.to_i
-	when '*'
-	  puts num1.to_i * num2.to_i
-	when '/'
-		unless num2 == 0
-	  	puts "#{num1.to_i / num2.to_i}"
-		else
-			puts "Division By Zero"
-		end
-	else
-	  puts "Invalid operation"
-	end
+puts calculate(inputarr.first,inputarr.last,op)
 
  
