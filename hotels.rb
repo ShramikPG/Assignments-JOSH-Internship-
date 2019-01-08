@@ -9,9 +9,8 @@ puts "Enter Budget"
 budget = gets.to_i
 result = Array.new
 options.each do |hotel, dishes_with_price |
-	byebug
- a = dishes_with_price.select{|dish,price| dish.to_s == dish_in && budget >= price }
- result << hotel if a.count > 0
+	a = dishes_with_price.select{|dish,price| dish.to_s == dish_in && budget >= price }
+	result << hotel if a.count > 0
 end
 if result.size>0
 	puts result
