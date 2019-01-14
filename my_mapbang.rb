@@ -5,6 +5,6 @@ def my_map!(arg)
   end
   arg
 end
-arr = [1,2,3]
+arr = [1, 2, 3]
 puts my_map!(arr) { |n| n + 2}
 puts arr
